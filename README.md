@@ -44,7 +44,7 @@ What Was Intentionally Left Out
 
 
 
-**UI/UX Design:** The PDF stated "No design work expected". Pure text-style HTML was chosen.
+**UI/UX Design:** Pure text-style HTML was chosen.
 
 **Authentication:** Unnecessary for public read-only data.
 
