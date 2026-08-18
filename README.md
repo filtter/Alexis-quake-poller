@@ -36,7 +36,7 @@ Key Design Decisions:
 
 1. Database-level Idempotency: Instead of doing a SELECT to check if a record exists before inserting it, we use the USGS GeoJSON id field as the Primary Key (Natural Key). We use SQLite's INSERT OR IGNORE clause. If the poller queries the same hour twice, the database simply ignores duplicates without throwing errors or overloading the CPU.
 2. Extreme Resilience: The main poller loop is designed under the "fail safely" principle.Use of timeout=(10, 15) to prevent the script from hanging forever waiting for a response.Use of raise\_for\_status() to catch non-200 HTTP codes before attempting to parse garbage.Granular exception handling: network errors don't abort the process, and errors in an individual record don't abort the rest of the batch.
-3. No Backend Frameworks: Python's standard http.server library was used for the dashboard. The PDF specified "no framework you don't need". To serve a static HTML table, Flask or FastAPI are overkill. This keeps the system lightweight with zero external dependencies beyond requests.
+3. No Backend Frameworks: Python's standard http.server library was used for the dashboard. This keeps the system lightweight with zero external dependencies beyond requests.
 
 
 
