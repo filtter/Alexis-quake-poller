@@ -1,0 +1,6 @@
+# Python
+__pycache__/
+*.pyc
+
+# SQLite database (Se genera automáticamente al ejecutar, no debe ir al repo)
+earthquakes.db

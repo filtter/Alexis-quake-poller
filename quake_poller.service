@@ -1,0 +1,18 @@
+[Unit]
+Description=Resilient Data Poller for USGS Earthquakes
+After=network.target
+
+[Service]
+Type=simple
+# CAMBIA ESTO por tu usuario real de Linux y la ruta donde pusiste el proyecto
+User=tu_usuario_linux
+WorkingDirectory=/ruta/a/tu/proyecto/quake_poller
+# CAMBIA ESTO por la ruta exacta de tu Python 3.13 y tu script
+ExecStart=/usr/bin/python3 /ruta/a/tu/proyecto/quake_poller/poller.py
+
+# Reinicia automáticamente si el script crashea o se cierra
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
